@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle color="dark">
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Noticias</ion-title>
@@ -12,15 +12,13 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let n of noticias">
+  <ion-card *ngFor="let n of noticias" (click)="detalheNoticia(n)">
     <img src="{{n.imagem}}"/>
     <ion-card-content>
       <ion-card-title>
         {{n.titulo}}
         </ion-card-title>
-      <p>
-        {{n.conteudo}}
-      </p>
+
     </ion-card-content>
   </ion-card>
 

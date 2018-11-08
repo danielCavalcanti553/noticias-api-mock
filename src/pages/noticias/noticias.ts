@@ -15,8 +15,8 @@ export class NoticiasPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticiasPage');
+  detalheNoticia(noticiaObj : Noticia){
+    this.navCtrl.push('DetalheNoticiaPage',{'noticia' : noticiaObj});
   }
 
 }

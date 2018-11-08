@@ -8,28 +8,42 @@
 
 
 <ion-content padding>
+
+  <form [formGroup]="formGroup">
   <ion-list>
 
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
   
+    <p margin-left *ngIf="formGroup.controls.nome.errors && formGroup.controls.nome.dirty"> Nome inválido</p>
+
     <ion-item>
       <ion-label floating>Endereço</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="endereco" type="text"></ion-input>
     </ion-item>
+
+    <p margin-left *ngIf="formGroup.controls.endereco.errors && formGroup.controls.endereco.dirty"> Endereço inválido</p>
+
 
     <ion-item>
       <ion-label floating>Telefone</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="telefone" type="text"></ion-input>
     </ion-item>
+
+    <p margin-left *ngIf="formGroup.controls.telefone.errors && formGroup.controls.telefone.dirty"> Telefone inválido</p>
 
     <ion-item>
       <ion-label floating>E-mail</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
+
+    <p margin-left *ngIf="formGroup.controls.email.errors && formGroup.controls.email.dirty"> E-mail inválido</p>
+
+
   </ion-list>
 
   <button ion-button full (click)="cadastrar()">Cadastrar</button>
+  </form>
 </ion-content>

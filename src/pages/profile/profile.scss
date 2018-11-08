@@ -1,0 +1,19 @@
+page-profile {
+  
+    ion-content{
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+    }
+    img{
+        width: 90%; 
+        border-radius: 50%;
+        border: 1px solid #0000ff;
+        padding: 5px;
+    }
+
+    .profile-img{
+        background-image: url(../../assets/imgs/fundo.gif);
+        margin: -15px;
+    }
+}
