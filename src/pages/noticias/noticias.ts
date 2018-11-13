@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Noticia } from '../../model/noticia';
-import { NOTICIAS } from '../../config/api.config';
+import { NoticiaService } from '../../service/noticia.service';
+
 
 @IonicPage()
 @Component({
@@ -10,13 +11,21 @@ import { NOTICIAS } from '../../config/api.config';
 })
 export class NoticiasPage {
 
-  public noticias : Noticia[] = NOTICIAS;
+  public noticias : Noticia[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public noticiasService : NoticiaService) {
+    
+      this.noticiasService.getNoticias()
+        .subscribe(response => {
+          console.log(response);
+          this.noticias = response;
+        })
   }
 
-  detalheNoticia(noticiaObj : Noticia){
-    this.navCtrl.push('DetalheNoticiaPage',{'noticia' : noticiaObj});
+  detalheNoticia(id : string){
+    this.navCtrl.push('DetalheNoticiaPage',{'id' : id});
   }
 
 }
